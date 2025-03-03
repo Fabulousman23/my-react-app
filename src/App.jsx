@@ -35,12 +35,15 @@ function App() {
     <div>
       <Header />
       <main>
-        <ul>
-          <CoreConcepts />
-          <CoreConcepts />
-          <CoreConcepts />
-        </ul>
-        <h2>Time to get started!</h2>
+        <section id="core-concepts">
+          <h2>Core Consepts</h2>
+          <ul>
+            <CoreConcepts />
+            <CoreConcepts />
+            <CoreConcepts />
+            <CoreConcepts />
+          </ul>
+        </section>
       </main>
     </div>
   );
