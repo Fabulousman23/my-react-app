@@ -38,11 +38,10 @@ function App() {
             <TapButton onSelect={() => handleClick('Props')}>Props</TapButton>
             <TapButton onSelect={() => handleClick('State')}>State</TapButton>
           </menu>
-          <div>
-          </div>
+          <div>{selectedTopic}</div>
         </section>
       </main>
-    </div>
+    </div >
   );
 }
 
