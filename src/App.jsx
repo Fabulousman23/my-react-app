@@ -1,22 +1,32 @@
-import { use, useState } from 'react';
+import React, { useState } from 'react';
 import { CORE_CONCEPTS } from './data.jsx';
 import Header from './components/Header/Header.jsx';
 import CoreConcepts from './components/CoreConcepts.jsx';
 import TapButton from './components/TapButton.jsx';
-import { Children } from 'react';
+import { EXAMPLES } from './data.jsx';
 
 function App() {
-  // const [selectedTopic, setSelectedTopic] = useState('Please Click on a Button');
-  const selectedTopicState = useState('Please Click on a Button');
-  const selectedTopic = selectedTopicState[0];
-  const setSelectedTopic = selectedTopicState[1];
+  const [selectedTopic, setSelectedTopic] = useState();
 
 
   function handleClick(selectedButton) {
     setSelectedTopic(selectedButton);
-    console.log(selectedButton);
   }
+  let tabContent = <p>Please select a Topic</p>;
 
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>
+            {EXAMPLES[selectedTopic].code}
+          </code>
+        </pre>
+      </div>
+    );
+  }
   return (
     <div>
       <Header />
@@ -33,14 +43,14 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TapButton onSelect={() => handleClick('Components')}>Components</TapButton>
-            <TapButton onSelect={() => handleClick('JSX')}>JSX</TapButton>
-            <TapButton onSelect={() => handleClick('Props')}>Props</TapButton>
-            <TapButton onSelect={() => handleClick('State')}>State</TapButton>
+            <TapButton onSelect={() => handleClick('components')}>Components</TapButton>
+            <TapButton onSelect={() => handleClick('jsx')}>JSX</TapButton>
+            <TapButton onSelect={() => handleClick('props')}>Props</TapButton>
+            <TapButton onSelect={() => handleClick('state')}>State</TapButton>
           </menu>
-          <div>{selectedTopic}</div>
-        </section>
-      </main>
+          {tabContent}
+        </section >
+      </main >
     </div >
   );
 }
