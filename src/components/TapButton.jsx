@@ -1,8 +1,7 @@
-export default function TapButton({ children, onSelect }) {
-    // This function is called when the button is clicked
+export default function TapButton({ children, onSelect, isSelected }) {
     return (
         <li>
-            <button onClick={onSelect}>
+            <button className={isSelected ? 'active' : undefined} onClick={onSelect}>
                 {children}
             </button>
 
