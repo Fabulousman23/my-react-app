@@ -4,6 +4,7 @@ import Header from './components/Header/Header.jsx';
 import CoreConcepts from './components/CoreConcepts.jsx';
 import TapButton from './components/TapButton.jsx';
 import { EXAMPLES } from './data.jsx';
+import NewCoreConcept from './components/NewCoreConcept.jsx';
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState();
@@ -31,12 +32,7 @@ function App() {
     <Fragment>
       <Header />
       <main>
-        <section id="core-concepts">
-          <h2>Core Consepts</h2>
-          <ul>
-            {CORE_CONCEPTS.map((concept) => (<CoreConcepts key={concept.title} {...concept} />))}
-          </ul>
-        </section>
+        <NewCoreConcept />
         <section id="examples">
           <h2>Examples</h2>
           <menu>
