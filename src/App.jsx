@@ -1,58 +1,22 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { CORE_CONCEPTS } from './data.jsx';
 import Header from './components/Header/Header.jsx';
 import CoreConcepts from './components/CoreConcepts.jsx';
 import TapButton from './components/TapButton.jsx';
 import { EXAMPLES } from './data.jsx';
 import NewCoreConcept from './components/NewCoreConcept.jsx';
+import Examples from './components/Examples.jsx';
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState();
 
-
-  function handleClick(selectedButton) {
-    setSelectedTopic(selectedButton);
-  }
-  let tabContent = <p>Please select a Topic</p>;
-
-  if (selectedTopic) {
-    tabContent = (
-      <div id="tab-content">
-        <h3>{EXAMPLES[selectedTopic].title}</h3>
-        <p>{EXAMPLES[selectedTopic].description}</p>
-        <pre>
-          <code>
-            {EXAMPLES[selectedTopic].code}
-          </code>
-        </pre>
-      </div>
-    );
-  }
   return (
-    <Fragment>
+    <>
       <Header />
       <main>
         <NewCoreConcept />
-        <section id="examples">
-          <h2>Examples</h2>
-          <menu>
-            <TapButton
-              isSelected={selectedTopic === 'components'}
-              onSelect={() => handleClick('components')}>Components</TapButton>
-            <TapButton
-              isSelected={selectedTopic === 'jsx'}
-              onSelect={() => handleClick('jsx')}>JSX</TapButton>
-            <TapButton
-              isSelected={selectedTopic === 'props'}
-              onSelect={() => handleClick('props')}>Props</TapButton>
-            <TapButton
-              isSelected={selectedTopic === 'state'}
-              onSelect={() => handleClick('state')}>State</TapButton>
-          </menu>
-          {tabContent}
-        </section >
+        <Examples />
       </main >
-    </Fragment >
+    </ >
   );
 }
 
