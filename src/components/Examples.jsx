@@ -29,35 +29,37 @@ export default function Examples() {
 
     return (
         <Section title="Examples" id="examples">
-            <Tabs buttons={
+            <Tabs
+                buttonsContainer="menu"
 
-                <>
-                    <TapButton
-                        isSelected={selectedTopic === 'components'}
-                        onClick={() => handleClick('components')}
-                    >
-                        Components
-                    </TapButton>
-                    <TapButton
-                        isSelected={selectedTopic === 'jsx'}
-                        onClick={() => handleClick('jsx')}
-                    >
-                        JSX
-                    </TapButton>
-                    <TapButton
-                        isSelected={selectedTopic === 'props'}
-                        onClick={() => handleClick('props')}
-                    >
-                        Props
-                    </TapButton>
-                    <TapButton
-                        isSelected={selectedTopic === 'state'}
-                        onClick={() => handleClick('state')}
-                    >
-                        State
-                    </TapButton>
-                </>
-            }
+                buttons={
+                    <>
+                        <TapButton
+                            isSelected={selectedTopic === 'components'}
+                            onClick={() => handleClick('components')}
+                        >
+                            Components
+                        </TapButton>
+                        <TapButton
+                            isSelected={selectedTopic === 'jsx'}
+                            onClick={() => handleClick('jsx')}
+                        >
+                            JSX
+                        </TapButton>
+                        <TapButton
+                            isSelected={selectedTopic === 'props'}
+                            onClick={() => handleClick('props')}
+                        >
+                            Props
+                        </TapButton>
+                        <TapButton
+                            isSelected={selectedTopic === 'state'}
+                            onClick={() => handleClick('state')}
+                        >
+                            State
+                        </TapButton>
+                    </>
+                }
             >
                 {tabContent}
             </Tabs>
